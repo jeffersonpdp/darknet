@@ -508,22 +508,26 @@ imagens será
 Para o arquivo *test.txt* o processo é similar. Trocamos o nome do arquivo
 dentro do código para *test.txt* e colocalos os respectivos caminhos.
 ```
-import os
+import os 
+  
+# Function to rename multiple files 
+def main(): 
 
-\# Function to rename multiple files
-def main():
-fh = open('test.txt', 'w')
-\#i = 1
+	fh = open('test.txt', 'w')
 
-for filename in os.listdir("*path-to-test-directory*"):
-if filename.endswith(".jpg"):
-src = '*path-to-test-directory*\\\\'+ filename
-fh.write("/*path-to-img directory/*{}\\n".format(filename))
-fh.close()
-\# Driver Code
-if \__name_\_ == '__main__':
-\# Calling main() function
-main()
+    #i = 1
+      
+	for filename in os.listdir("path-to-test-directory"):
+		if filename.endswith(".jpg"):
+			src = 'path-to-test-directory\\'+ filename
+			fh.write("/path-to-img directory/{}\n".format(filename))
+	fh.close()
+	  
+# Driver Code 
+if __name__ == '__main__': 
+      
+    # Calling main() function 
+    main()
 ```
 Treinamento
 -----------
