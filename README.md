@@ -127,7 +127,7 @@ aqui é que o modelo da sua GPU seja a partir da NVIDIA GTX 10.
 Em termos de padronização deste guia, iremos explicar o processo nos baseando na
 instância da AWS com o ambiente Linux especificado acima.
 
-Se você, possui algum outro ambiente com GPU, no qual queira replicar o
+Se você possui algum outro ambiente com GPU, no qual queira replicar o
 treinamento, saiba que existe a possibilidade de alguma ou outra coisa mudar.
 
 Sendo assim, vá por sua própria conta e risco, que com paciência você conseguirá
@@ -181,7 +181,7 @@ vi /home/ubuntu/darknet/examples/detector.c
 Vá para a linha 138 e edite *if(i%10000==0 \|\| (i \< 1000 && i%100 == 0)){*
 para:
 ```
-138) if(i \< 10000 && i%400 == 0){
+138) if(i < 10000 && i%400 == 0){
 ```
 Isto fará com que salve a cada 400 iterações, até chegar na iteração 10000.
 
