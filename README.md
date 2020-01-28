@@ -541,8 +541,7 @@ Modelo para Tiny YOLO-V3:
 ```
 cd /home/ubuntu/darknet
 wget https://pjreddie.com/media/files/yolov3-tiny.weights
-darknet.exe partial cfg/yolov3-tiny.cfg yolov3-tiny.weights yolov3-tiny.conv.15
-15
+darknet.exe partial cfg/yolov3-tiny.cfg yolov3-tiny.weights yolov3-tiny.conv.15 15
 ```
 Obs: Note que para o Tiny YOLO-V3 será gerado um arquivo chamado
 yolov3-tiny.conv.15 que será usado para o treinamento.
@@ -565,13 +564,11 @@ Pronto, agora coloquemos um dos seguintes comandos para inicar o treino.
 
 Para YOLO-V3:
 ```
-./darknet detector train data/obj.data cfg/yolo-obj.cfg darknet53.conv.74 \| tee
-/home/ubuntu/darknet/train.log
+./darknet detector train data/obj.data cfg/yolo-obj.cfg darknet53.conv.74 \| tee /home/ubuntu/darknet/train.log
 ```
 Para Tiny YOLO-V3:
 ```
-./darknet detector train data/obj.data cfg/yolov3-tiny-obj.cfg
-yolov3-tiny.conv.151 \| tee /home/ubuntu/darknet/train.log
+./darknet detector train data/obj.data cfg/yolov3-tiny-obj.cfg yolov3-tiny.conv.151 \| tee /home/ubuntu/darknet/train.log
 ```
 Seu treino irá começar, e no final dele irá criar um arquivo *train.log* no
 caminho */home/ubuntu/darknet* e o arquivo weights na pasta */darknet/backup*.
