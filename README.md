@@ -379,7 +379,7 @@ objeto\>*-test.
 
 Nossa hierarquia de pastas teria que ficar assim:
 
-![2](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/2.png)
+![2](/yolov3-doc/2.png)
 
 ### Coleta de imagens
 
@@ -398,7 +398,7 @@ Você pode aprender mais sobre a ferramenta no seguinte link:
 Nós baixamos em média 750 imagens por objeto, e separamos elas em pastas
 diferentes:
 
-![3](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/3.png)
+![3](/yolov3-doc/3.png)
 
 Renomeie cada imagem começando pelo 1.jpg. Nós começaremos renomeando todas as
 imagens jpg correspondentes à pasta argentina (1.jpg, 2.jpg, ..., 726.jpg),
@@ -435,7 +435,7 @@ pasta. Lembrando que para cada objeto (*Brasil, Argentina, Colombia,* e
 *Mexico*) temos mais 2 subpastas com os nomes *\<nome do objeto\>*-train e
 *\<nome do objeto\>*-test.
 
-![4](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/4.png)
+![4](/yolov3-doc/4.png)
 
 Você terá acabado quando todas as imagens do seu dataset tiverem seus
 respectivos labels.
@@ -450,7 +450,7 @@ chamar *dog.txt*
 
 Primeiro vamos relembrar como ficou nossa arquitetura de pastas:
 
-![5](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/5.png)
+![5](/yolov3-doc/5.png)
 
 Vamos copiar todas as imagens das subpastas de treinamento (*\<nome do
 objeto\>*-train) dos 4 objetos, para a pasta *train*, depois repetimos o mesmo
@@ -498,7 +498,7 @@ imagens será
 ```
 /home/ubuntu/darknet/img/*nome-da-imagem.jpg*
 ```
-![6](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/6.png)
+![6](/yolov3-doc/6.png)
 
 ### Test.txt
 
@@ -604,9 +604,9 @@ caminho */home/ubuntu/darknet* e o arquivo weights na pasta */darknet/backup*.
 Antes de testar seu modelo treinado, edite seu arquivo *.cfg* comentando as
 linhas **6)** e **7)**, e descomentando as linhas **3)** e **4)**:
 
-![7](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/7.png)
+![7](/yolov3-doc/7.png)
 
-![8](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/8.png)
+![8](/yolov3-doc/8.png)
 
 Dúvidas
 -------
