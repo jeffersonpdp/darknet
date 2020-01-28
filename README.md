@@ -13,8 +13,8 @@ V 1.2
 
 * [Introdução](#Introdução)
 * [Objetivos](#Objetivos)
-* [O que é Yolo?](#O-que-e-Yolo?)
-* [O que é Darknet?](#O-que-e-Darknet?)
+* [O que é Yolo?](#o-que-é-yolo)
+* [O que é Darknet?](#o-que-é-darknet)
 * [Pre-requisitos](#Pre-requisitos)
 * [Compilando Darknet](#Compilando-Darknet)
     * [Clonando o projeto](#Clonando-o-projeto)
@@ -33,11 +33,14 @@ V 1.2
    * [Arquivos train.txt e test.txt](#Arquivos-traintxt-e-testtxt)
    * [Train.txt](#Traintxt)
    * [Test.txt](#Testtxt)
-* [Compilando Darknet](#Compilando-Darknet)
-   * [Compilando Darknet](#Compilando-Darknet)
-   * [Compilando Darknet](#Compilando-Darknet)
-* [Compilando Darknet](#Compilando-Darknet)
-* [Compilando Darknet](#Compilando-Darknet)
+* [Treinamento](#Treinamento)
+   * [Importando arquivos](#Importando-arquivos)
+   * [Modelo pre-treinado](#Modelo-pre-treinado)
+   * [Tmux (Opcional)](#tmux-opcional)
+   * [Executando o treinamento](#executando-o-treinamento)
+   * [Testando o modelo treinado](#testando-o-modelo-treinado)
+* [Dúvidas](#dúvidas)
+* [Fontes](#fontes)
 
 Introdução
 ---------
