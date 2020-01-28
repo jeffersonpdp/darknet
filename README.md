@@ -473,22 +473,25 @@ No arquivo train.txt você precisa listar os caminhos das imagens, linha por
 linha. Você pode criar este arquivo do jeito que você preferir. Nós usaremos um
 script python para gerar este arquivo.
 ```
-import os
+import os 
+  
+# Function to rename multiple files 
+def main(): 
 
-\# Function to rename multiple files
-def main():
-fh = open('train.txt', 'w')
-\#i = 1
+	fh = open('train.txt', 'w')
 
-for filename in os.listdir("*path-to-train-directory*"):
-if filename.endswith(".jpg"):
-src = '*path-to-train-directory*\\\\'+ filename
-fh.write("*/path-to-img-directory/*{}\\n".format(filename))
-fh.close()
-\# Driver Code
-if \__name_\_ == '__main__':
-\# Calling main() function
-main()
+    #i = 1
+      
+	for filename in os.listdir("path-to-train-directory"):
+		if filename.endswith(".jpg"):
+			src = 'path-to-train-directory\\'+ filename
+			fh.write("/path-to-img-directory/{}\n".format(filename))
+	fh.close()
+	 
+# Driver Code 
+if __name__ == '__main__': 
+    # Calling main() function 
+    main()
 ```
 Substitua os valores *path-to-train-directory* e *path-to-img-directory*, pelos
 seus valores correspondentes.
