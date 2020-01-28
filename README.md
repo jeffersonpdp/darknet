@@ -12,6 +12,11 @@ V 1.2
 #### Innovation and Growth Initiatives
 
 * [Introdução](#Introdução)
+* [Objetivos](#Objetivos)
+* [O que é Yolo?](#O-que-é-Yolo?)
+* [O que é Darknet?](#O-que-é-Darknet?)
+* [Pre-requisitos](#Pre-requisitos)
+* [Compilando Darknet](#Compilando-Darknet)
 
 Introdução
 ---------
