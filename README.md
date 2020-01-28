@@ -18,9 +18,9 @@ V 1.2
 * [Pre-requisitos](#Pre-requisitos)
 * [Compilando Darknet](#Compilando-Darknet)
     * [Clonando o projeto](#Clonando-o-projeto)
-    * [Compilando Darknet](#Compilando-Darknet)
-    * [Compilando Darknet](#Compilando-Darknet)
-    * [Compilando Darknet](#Compilando-Darknet)
+    * [Configurando o projeto](#Configurando-o-projeto)
+    * [Exportando as variáveis do projeto](#Exportando-as-variáveis-do-projeto)
+    * [Testando o projeto](#Testando-o-projeto)
 
 Introdução
 ---------
