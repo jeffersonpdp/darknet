@@ -356,15 +356,6 @@ Exemplo:
 
 ![1](https://hsto.org/webt/yd/vl/ag/ydvlagutof2zcnjodstgroen8ac.jpeg)
 
-
-```
-1)1 0.241406 0.377778 0.084375 0.241667
-2)0 0.320703 0.339583 0.078906 0.284722
-3)0 0.397266 0.404861 0.128906 0.320833
-4)3 0.549219 0.377083 0.154687 0.276389
-5)1 0.684375 0.395139 0.168750 0.326389
-6)2 0.732031 0.304167 0.129688 0.327778
-```
 No exemplo acima encontramos 6 linhas, onde cada uma representa um objeto e sua
 posição, e dentro de cada linha encontramos 5 valores, onde o primeiro (na cor
 vermelha) corresponde ao número do objeto. Neste caso temos 4 objetos para
@@ -388,7 +379,7 @@ objeto\>*-test.
 
 Nossa hierarquia de pastas teria que ficar assim:
 
-![2](media/4bae0eb70f3c26e6717129be8ff86dd0.png)
+![2](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/2.png)
 
 ### Coleta de imagens
 
@@ -407,7 +398,7 @@ Você pode aprender mais sobre a ferramenta no seguinte link:
 Nós baixamos em média 750 imagens por objeto, e separamos elas em pastas
 diferentes:
 
-![3](media/50a4e68093cb5c88e05c86077004fc04.png)
+![3](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/3.png)
 
 Renomeie cada imagem começando pelo 1.jpg. Nós começaremos renomeando todas as
 imagens jpg correspondentes à pasta argentina (1.jpg, 2.jpg, ..., 726.jpg),
@@ -444,7 +435,7 @@ pasta. Lembrando que para cada objeto (*Brasil, Argentina, Colombia,* e
 *Mexico*) temos mais 2 subpastas com os nomes *\<nome do objeto\>*-train e
 *\<nome do objeto\>*-test.
 
-![4](media/93b6d1a168fdbe861f40ddc91cde9244.png)
+![4](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/4.png)
 
 Você terá acabado quando todas as imagens do seu dataset tiverem seus
 respectivos labels.
@@ -459,7 +450,7 @@ chamar *dog.txt*
 
 Primeiro vamos relembrar como ficou nossa arquitetura de pastas:
 
-![5](media/4bae0eb70f3c26e6717129be8ff86dd0.png)
+![5](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/5.png)
 
 Vamos copiar todas as imagens das subpastas de treinamento (*\<nome do
 objeto\>*-train) dos 4 objetos, para a pasta *train*, depois repetimos o mesmo
@@ -507,7 +498,7 @@ imagens será
 ```
 /home/ubuntu/darknet/img/*nome-da-imagem.jpg*
 ```
-![](media/4dbbeb606fc1d6c0e9142b4ee421dff8.png)
+![6](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/6.png)
 
 ### Test.txt
 
@@ -613,9 +604,9 @@ caminho */home/ubuntu/darknet* e o arquivo weights na pasta */darknet/backup*.
 Antes de testar seu modelo treinado, edite seu arquivo *.cfg* comentando as
 linhas **6)** e **7)**, e descomentando as linhas **3)** e **4)**:
 
-![7](media/97131e9ecd5827368ae89fd705922242.png)
+![7](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/7.png)
 
-![8](media/5f691670cd80a01f6d45607af26b59bd.png)
+![8](https://sasoffice365-my.sharepoint.com/personal/jose_amat_sas_com/Documents/yolov3-doc/8.png)
 
 Dúvidas
 -------
