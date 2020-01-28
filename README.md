@@ -11,8 +11,10 @@ V 1.2
 
 #### Innovation and Growth Initiatives
 
+* [Introdução](#Introdução)
+
 Introdução
-----------
+---------
 
 Cada dia vemos mais soluções que fazem uso do Computer Vision para que estas se
 tornem mais inteligentes e automatizadas. Este tipo de tecnologia tem sido usada
