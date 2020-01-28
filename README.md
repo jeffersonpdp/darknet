@@ -566,7 +566,7 @@ treinamento.
 Modelo para YOLO-V3:
 ```
 cd /home/ubuntu/darknet
-wget <https://pjreddie.com/media/files/darknet53.conv.74>
+wget https://pjreddie.com/media/files/darknet53.conv.74
 ```
 Obs: Note que este arquivo baixado será usado para treinamento.
 
