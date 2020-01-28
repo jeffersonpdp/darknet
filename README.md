@@ -17,6 +17,10 @@ V 1.2
 * [O que é Darknet?](#O-que-e-Darknet?)
 * [Pre-requisitos](#Pre-requisitos)
 * [Compilando Darknet](#Compilando-Darknet)
+    * [Clonando o projeto](#Clonando-o-projeto)
+    * [Compilando Darknet](#Compilando-Darknet)
+    * [Compilando Darknet](#Compilando-Darknet)
+    * [Compilando Darknet](#Compilando-Darknet)
 
 Introdução
 ---------
