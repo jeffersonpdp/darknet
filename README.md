@@ -21,6 +21,23 @@ V 1.2
     * [Configurando o projeto](#Configurando-o-projeto)
     * [Exportando as variáveis do projeto](#Exportando-as-variáveis-do-projeto)
     * [Testando o projeto](#Testando-o-projeto)
+* [Criando O arquivo de configuração](#Criando-o-arquivo-de-configuração)
+   * [YOLO-V3 & Tiny YOLO-V3](#YOLO-V3-&-Tiny-YOLO-V3)
+* [Treinamento de objetos](#Treinamento-de-objetos)
+   * [Criando arquivos .names e .data](#Criando-arquivos-.names-e-.data)
+* [Compilando Darknet](#Compilando-Darknet)
+   * [Compilando Darknet](#Compilando-Darknet)
+   * [Compilando Darknet](#Compilando-Darknet)
+   * [Compilando Darknet](#Compilando-Darknet)
+   * [Compilando Darknet](#Compilando-Darknet)
+   * [Compilando Darknet](#Compilando-Darknet)
+   * [Compilando Darknet](#Compilando-Darknet)
+   * [Compilando Darknet](#Compilando-Darknet)
+* [Compilando Darknet](#Compilando-Darknet)
+   * [Compilando Darknet](#Compilando-Darknet)
+   * [Compilando Darknet](#Compilando-Darknet)
+* [Compilando Darknet](#Compilando-Darknet)
+* [Compilando Darknet](#Compilando-Darknet)
 
 Introdução
 ---------
@@ -207,7 +224,7 @@ usage: ./darknet \<function\>
 ```
 Pronto, sua compilação foi feita com sucesso!
 
-Criando O arquivo de configuração
+Criando o arquivo de configuração
 ---------------------------------
 
 Nesta etapa podemos optar tanto pelo modelo tiny, quanto pelo modelo normal. O
