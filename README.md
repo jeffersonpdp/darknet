@@ -564,11 +564,11 @@ Pronto, agora coloquemos um dos seguintes comandos para inicar o treino.
 
 Para YOLO-V3:
 ```
-./darknet detector train data/obj.data cfg/yolo-obj.cfg darknet53.conv.74 \| tee /home/ubuntu/darknet/train.log
+./darknet detector train data/obj.data cfg/yolo-obj.cfg darknet53.conv.74 | tee /home/ubuntu/darknet/train.log
 ```
 Para Tiny YOLO-V3:
 ```
-./darknet detector train data/obj.data cfg/yolov3-tiny-obj.cfg yolov3-tiny.conv.151 \| tee /home/ubuntu/darknet/train.log
+./darknet detector train data/obj.data cfg/yolov3-tiny-obj.cfg yolov3-tiny.conv.151 | tee /home/ubuntu/darknet/train.log
 ```
 Seu treino irá começar, e no final dele irá criar um arquivo *train.log* no
 caminho */home/ubuntu/darknet* e o arquivo weights na pasta */darknet/backup*.
@@ -599,7 +599,7 @@ para melhorar este documento.
 
 Fontes
 ------
-```
+
 <https://pjreddie.com/darknet/install/>
 
 <https://github.com/pjreddie/darknet>
@@ -607,4 +607,4 @@ Fontes
 <https://github.com/AlexeyAB/darknet/>
 
 <https://www.learnopencv.com/training-yolov3-deep-learning-based-custom-object-detector/>
-```
+
