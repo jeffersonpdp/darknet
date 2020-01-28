@@ -209,8 +209,8 @@ output não foi esse, coloque o comando “make clean” e tente debugar o probl
 
 Agora você precisa exportar as seguintes variáveis de ambiente:
 ```
-export PATH=/usr/local/cuda-10.0/bin\${PATH:+:\${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}
+export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 ```
 Confira que os caminhos existem na sua máquina. Perceba que até agora nós usamos
 a versão 10.0 do CUDA.
@@ -223,7 +223,7 @@ Para testar o sucesso da sua compilação coloque o seguinte comando:
 ```
 Seu output deve ser:
 ```
-usage: ./darknet \<function\>
+usage: ./darknet <function>
 ```
 Pronto, sua compilação foi feita com sucesso!
 
