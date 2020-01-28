@@ -111,101 +111,89 @@ Se você estiver usando um servidor da AWS com Ubuntu, é garantido que a rota
 */home/ubuntu* existe.
 
 Primeiro vamos clonar nosso projeto:
-
+ ```
 sudo su
-
 cd /home/ubuntu
-
 git clone https://github.com/pjreddie/darknet.git
-
 cd darknet
-
+```
 ### Configurando o projeto
 
 Agora vamos editar nosso arquivo *Makefile*:
-
+```
 vi /home/ubuntu/darknet/Makefile
-
+```
+```
 1) GPU=1
-
 2) CUDNN=1
-
+```
 É necessário passar a rota correta do paramento *NVCC*, dentro do *Makefile*,
 neste ambiente é:
-
+```
 24) NVCC=/usr/local/cuda-10.0/bin/nvcc
-
+```
 Confira também que os caminhos da versão do CUDA que você irá usar estão
 corretos nas seguintes linhas. No nosso caso os caminhos são:
-
+```
 50) COMMON+= -DGPU -I/usr/local/cuda-10.0/include/
-
 51) CFLAGS+= -DGPU
-
 52) LDFLAGS+= -L/usr/local/cuda-10.0/lib64 -lcuda -lcudart -lcublas -lcurand
-
+```
 Pela configuração original, Darknet só salva o treinamento a cada 100 iterações,
 até chegar na iteração número 900, a partir daí ele começa a salvar a cada 10000
 iterações. Isto é ruim se você precisar parar o treinamento em alguma parte do
 processo, sem perder o que já foi feito. Para isso nós vamos editar o arquivo
 *detector.c*:
-
+```
 vi /home/ubuntu/darknet/examples/detector.c
-
+```
 Vá para a linha 138 e edite *if(i%10000==0 \|\| (i \< 1000 && i%100 == 0)){*
 para:
-
+```
 138) if(i \< 10000 && i%400 == 0){
-
+```
 Isto fará com que salve a cada 400 iterações, até chegar na iteração 10000.
 
 Uma vez editado vamos no caminho:
-
+```
 cd /home/ubuntu/darknet/
-
+```
 E compilamos o projeto com o seguinte comando:
-
+```
 make
-
+```
 Nosso output deverá ser parecido com esse:
-
+```
 mkdir -p obj
-
 gcc -I/usr/local/cuda/include/ -Wall -Wfatal-errors -Ofast....
-
 gcc -I/usr/local/cuda/include/ -Wall -Wfatal-errors -Ofast....
-
 gcc -I/usr/local/cuda/include/ -Wall -Wfatal-errors -Ofast....
-
 .....
-
 gcc -I/usr/local/cuda/include/ -Wall -Wfatal-errors -Ofast -lm....
-
+```
 Se seu output foi esse, quer dizer que você está no caminho correto. Se seu
 output não foi esse, coloque o comando “make clean” e tente debugar o problema.
 
 ### Exportando as variáveis do projeto
 
 Agora você precisa exportar as seguintes variáveis de ambiente:
-
+```
 export PATH=/usr/local/cuda-10.0/bin\${PATH:+:\${PATH}}
-
-export
-LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}
-
+export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}
+```
 Confira que os caminhos existem na sua máquina. Perceba que até agora nós usamos
 a versão 10.0 do CUDA.
 
 ### Testando o projeto
 
 Para testar o sucesso da sua compilação coloque o seguinte comando:
-
+```
 ./darknet
-
+```
 Seu output deve ser:
-
+```
 usage: ./darknet \<function\>
-
+```
 Pronto, sua compilação foi feita com sucesso!
 
 Criando O arquivo de configuração
@@ -224,113 +212,98 @@ dependendo da rede escolhida por você*.* Para isso, estando dentro da pasta
 *darknet,* coloque os seguintes comandos:
 
 Para YOLO-V3:
-
+```
 cd /home/ubuntu/darknet
-
 cp cfg/yolov3.cfg cfg/yolo-obj.cfg
-
+```
 Para Tiny YOLO-V3:
-
+```
 cd /home/ubuntu/darknet
 
 cp cfg/yolov3-tiny.cfg cfg/yolov3-tiny-obj.cfg
-
+```
 Edite seu arquivo *yolo-obj.cfg* ou *yolov3-tiny-obj.cfg* criado para editar os
 parâmetros *batch* e *subdivisions*.
 
 Para YOLO-V3:
-
+```
 vi cfg/yolov3-tiny.cfg
-
+```
 Para Tiny YOLO-V3:
-
+```
 vi cfg/yolov3-tiny-obj.cfg
-
+```
 Coloque os valores *32* e *8* nas seguintes linhas, independemente da quantidade
 de objetos que for detectar.
-
+```
 6) batch=32
-
 7) subdivisions=8
-
+```
 Editando os *batch* e *subdivisions* conseguimos reduzir o consumo de memória
 tanto na hora de treinamento quanto na hora de teste.
 
 Agora vamos editar o número de objetos. Edite o parâmetro colocando o valor do
 número de objetos que você quer detectar. Neste caso queremos detectar 4
 objetos:
-
+```
 610) classes=4
-
 696) classes=4
-
 783) classes=4
-
+```
 Edite o parâmetro *max_batches* colocando o valor do produto do número de
 objetos vezes 2000 *(classes \* 2000)*. Neste caso o valor é *4 \* 2000 = 8000*:
-
+```
 20) max_batches = 8000
-
+```
 Obs: O valor mínimo a colocar é 4000, ou seja, se você for detectar apenas 1
 objeto coloque *max_batches = 4000*, para 2 objetos *max_batches = 4000*, para 3
 objetos *max_batches = 6000*, para 4 objetos *max_batches = 8000*, ...
 
 Atribua o valor do *80%* e *90%* do seu *max_batches* no parâmetro steps:
-
+```
 22)steps=6400,7200
-
+```
 Altere o parâmetro *filters* colocando o valor de *(classes + 5)\*3* nas
 seguintes linhas. Neste caso o valor é *(4 + 5)\*3 = 27*:
-
+```
 603) filters=27
-
 689) filters=27
-
 776) filters=27
-
+```
  Treinamento de objetos
 -----------------------
 
 ### Criando arquivos .names e .data
 
 Dentro da pasta *data*, crie um arquivo de texto com o nome *obj.names*:
-
+```
 cd /home/ubuntu/darknet/data
-
 vi obj.names
-
+```
 Dentro dele insira os nomes dos seus objetos a reconhecer:
-
+```
 Brasil
-
 Argentina
-
 Colombia
-
 Mexico
-
+```
 Cada linha representa um objeto diferente, começando do *0* até o *n-1* objetos
 (n = número de objetos/classes).
 
 Agora, dentro da pasta *./data*, crie um outro arquivo de texto chamado
 *obj.data*.
-
+```
 cd /home/ubuntu/darknet/data
-
 vi obj.data
-
+```
 Nele, insira as seguintes informações:
-
+```
 Classes = 4
-
 train = data/train.txt
-
 valid = data/test.txt
-
 names = data/obj.names
-
 backup = backup/
-
+```
 Obs: Está vendo os arquivos *train.txt* e *test.txt*? Não se preocupe, iremos
 falar deles mais na frente.
 
@@ -349,19 +322,14 @@ Os labels são arquivos txt que contem as coordenadas do nosso objeto dentro da
 imagem.
 
 Exemplo:
-
+```
 1)1 0.241406 0.377778 0.084375 0.241667
-
 2)0 0.320703 0.339583 0.078906 0.284722
-
 3)0 0.397266 0.404861 0.128906 0.320833
-
 4)3 0.549219 0.377083 0.154687 0.276389
-
 5)1 0.684375 0.395139 0.168750 0.326389
-
 6)2 0.732031 0.304167 0.129688 0.327778
-
+```
 No exemplo acima encontramos 6 linhas, onde cada uma representa um objeto e sua
 posição, e dentro de cada linha encontramos 5 valores, onde o primeiro (na cor
 vermelha) corresponde ao número do objeto. Neste caso temos 4 objetos para
@@ -370,9 +338,9 @@ e *Y* do plano cartesiano que correspondem ao quadrilátero que contem nosso
 objeto, junto com sua altura e comprimento.
 
 Aqui um link que explica melhor o significado das labels:
-
+```
 <https://towardsdatascience.com/yolo-v3-object-detection-53fb7d3bfe6b>
-
+```
 ### Organização de pastas
 
 Neste treinamento faremos o reconhecimento de 4 camisetas das seleções de
@@ -398,9 +366,9 @@ Neste caso nós optamos por usar a ferramenta chamada *Google Images Download*, 
 qual auxilia no download de imagens en grandes quantidades.
 
 Você pode aprender mais sobre a ferramenta no seguinte link:
-
+```
 <https://google-images-download.readthedocs.io/en/latest/>
-
+```
 Nós baixamos em média 750 imagens por objeto, e separamos elas em pastas
 diferentes:
 
@@ -430,9 +398,9 @@ Argentina terão 2 objetos para reconhecer.
 Os labels são parte importante deste processo. Existem diversos programas que
 nos auxiliam na criação deles. Nós usaremos o Yolo_Label. Você pode baixar esta
 ferramenta no link a seguir:
-
+```
 <https://github.com/developer0hye/Yolo_Label>
-
+```
 Nota: Agradecimentos especiais para *developer0hye* por sua contribuição à
 comunidade com esta ferramenta.
 
@@ -478,78 +446,56 @@ novo!
 No arquivo train.txt você precisa listar os caminhos das imagens, linha por
 linha. Você pode criar este arquivo do jeito que você preferir. Nós usaremos um
 script python para gerar este arquivo.
-
+```
 import os
 
 \# Function to rename multiple files
-
 def main():
-
 fh = open('train.txt', 'w')
-
 \#i = 1
 
 for filename in os.listdir("*path-to-train-directory*"):
-
 if filename.endswith(".jpg"):
-
 src = '*path-to-train-directory*\\\\'+ filename
-
 fh.write("*/path-to-img-directory/*{}\\n".format(filename))
-
 fh.close()
-
 \# Driver Code
-
 if \__name_\_ == '__main__':
-
 \# Calling main() function
-
 main()
-
+```
 Substitua os valores *path-to-train-directory* e *path-to-img-directory*, pelos
 seus valores correspondentes.
 
 Nós estamos usando uma instância EC2 da AWS, por isso a rota de todas nossas
 imagens será
-
+```
 /home/ubuntu/darknet/img/*nome-da-imagem.jpg*
-
+```
 ![](media/4dbbeb606fc1d6c0e9142b4ee421dff8.png)
 
 ### Test.txt
 
 Para o arquivo *test.txt* o processo é similar. Trocamos o nome do arquivo
 dentro do código para *test.txt* e colocalos os respectivos caminhos.
-
+```
 import os
 
 \# Function to rename multiple files
-
 def main():
-
 fh = open('test.txt', 'w')
-
 \#i = 1
 
 for filename in os.listdir("*path-to-test-directory*"):
-
 if filename.endswith(".jpg"):
-
 src = '*path-to-test-directory*\\\\'+ filename
-
 fh.write("/*path-to-img directory/*{}\\n".format(filename))
-
 fh.close()
-
 \# Driver Code
-
 if \__name_\_ == '__main__':
-
 \# Calling main() function
-
 main()
-
+```
 Treinamento
 -----------
 
@@ -557,31 +503,26 @@ Treinamento
 
 Coloque os arquivos na sua máquina Linux, dentro do projeto darknet. O caminho
 ficará:
-
+```
 /home/ubuntu/darknet/img
-
+```
 Coloque seus arquivos *train.txt* e *test.txt* dentro da pasta darknet/data
-
+```
 /home/ubuntu/darknet/data/train.txt
-
 /home/ubuntu/darknet/data/test.txt
-
+```
 Já que nós geramos todos estes arquivos *txt* dentro do sistema operacional
 Windows, e iremos trabalhar com eles num sistema operacional Linux (Ubuntu), é
 recomendável colocar os seguintes comandos:
-
+```
 cd /home/ubuntu/darknet
 
 dos2unix ./img/\*.txt
-
 dos2unix ./data/\*.txt
-
 dos2unix ./data/obj.data
-
 dos2unix ./data/obj.names
-
 dos2unix ./cfg/\*.cfg
-
+```
 ### Modelo pre-treinado
 
 Quase tudo pronto para iniciarmos o treinamento.
@@ -590,22 +531,19 @@ Vamos baixar agora um modelo pre-treinado que servirá de base para nosso
 treinamento.
 
 Modelo para YOLO-V3:
-
+```
 cd /home/ubuntu/darknet
-
 wget <https://pjreddie.com/media/files/darknet53.conv.74>
-
+```
 Obs: Note que este arquivo baixado será usado para treinamento.
 
 Modelo para Tiny YOLO-V3:
-
+```
 cd /home/ubuntu/darknet
-
 wget https://pjreddie.com/media/files/yolov3-tiny.weights
-
 darknet.exe partial cfg/yolov3-tiny.cfg yolov3-tiny.weights yolov3-tiny.conv.15
 15
-
+```
 Obs: Note que para o Tiny YOLO-V3 será gerado um arquivo chamado
 yolov3-tiny.conv.15 que será usado para o treinamento.
 
@@ -614,27 +552,27 @@ yolov3-tiny.conv.15 que será usado para o treinamento.
 Nós usaremos o tmux, um programa que serve para criar sessões no terminal.
 Assim, se você iniciar seu treinamento e fechar o terminal, o treinamento
 continuará funcionando dentro da sessão tmux:
-
+```
 sudo apt install tmux
-
+```
 Agora criaremos uma nova de nome treino
-
+```
 tmux new -s treino
-
+```
 ### Executando o treinamento
 
 Pronto, agora coloquemos um dos seguintes comandos para inicar o treino.
 
 Para YOLO-V3:
-
+```
 ./darknet detector train data/obj.data cfg/yolo-obj.cfg darknet53.conv.74 \| tee
 /home/ubuntu/darknet/train.log
-
+```
 Para Tiny YOLO-V3:
-
+```
 ./darknet detector train data/obj.data cfg/yolov3-tiny-obj.cfg
 yolov3-tiny.conv.151 \| tee /home/ubuntu/darknet/train.log
-
+```
 Seu treino irá começar, e no final dele irá criar um arquivo *train.log* no
 caminho */home/ubuntu/darknet* e o arquivo weights na pasta */darknet/backup*.
 
@@ -664,7 +602,7 @@ para melhorar este documento.
 
 Fontes
 ------
-
+```
 <https://pjreddie.com/darknet/install/>
 
 <https://github.com/pjreddie/darknet>
@@ -672,3 +610,4 @@ Fontes
 <https://github.com/AlexeyAB/darknet/>
 
 <https://www.learnopencv.com/training-yolov3-deep-learning-based-custom-object-detector/>
+```
