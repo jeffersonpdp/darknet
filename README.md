@@ -24,7 +24,7 @@ V 1.2
 * [Criando O arquivo de configuração](#Criando-o-arquivo-de-configuração)
    * [YOLO-V3 & Tiny YOLO-V3](#YOLO-V3-&-Tiny-YOLO-V3)
 * [Treinamento de objetos](#Treinamento-de-objetos)
-   * [Criando arquivos .names e .data](#Criando-arquivos-.names-e-.data)
+   * [Criando arquivos .names e .data](#Criando-arquivos)
 * [Preparação do banco de imagens](#Preparação-do-banco-de-imagens)
    * [Explicando os labels](#Explicando-os-labels)
    * [Organização de pastas](#Organização-de-pastas)
