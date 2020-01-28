@@ -2,7 +2,7 @@
 Treinamento de um modelo YOLO versão 3 para a detecção de objetos personalizados.
 
 ---
-title: ­­Treinamento YOLOV3 e Tiny-YOLOV3
+# Treinamento YOLOV3 e Tiny-YOLOV3
 ---
 
 V 1.2
