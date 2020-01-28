@@ -13,8 +13,8 @@ V 1.2
 
 * [Introdução](#Introdução)
 * [Objetivos](#Objetivos)
-* [O que é Yolo?](#O-que-é-Yolo?)
-* [O que é Darknet?](#O-que-é-Darknet?)
+* [O que é Yolo?](#O-que-e-Yolo?)
+* [O que é Darknet?](#O-que-e-Darknet?)
 * [Pre-requisitos](#Pre-requisitos)
 * [Compilando Darknet](#Compilando-Darknet)
 
