@@ -353,6 +353,10 @@ Os labels são arquivos txt que contem as coordenadas do nosso objeto dentro da
 imagem.
 
 Exemplo:
+
+![1](https://hsto.org/webt/yd/vl/ag/ydvlagutof2zcnjodstgroen8ac.jpeg)
+
+
 ```
 1)1 0.241406 0.377778 0.084375 0.241667
 2)0 0.320703 0.339583 0.078906 0.284722
@@ -369,9 +373,9 @@ e *Y* do plano cartesiano que correspondem ao quadrilátero que contem nosso
 objeto, junto com sua altura e comprimento.
 
 Aqui um link que explica melhor o significado das labels:
-```
+
 <https://towardsdatascience.com/yolo-v3-object-detection-53fb7d3bfe6b>
-```
+
 ### Organização de pastas
 
 Neste treinamento faremos o reconhecimento de 4 camisetas das seleções de
@@ -384,7 +388,7 @@ objeto\>*-test.
 
 Nossa hierarquia de pastas teria que ficar assim:
 
-![](media/4bae0eb70f3c26e6717129be8ff86dd0.png)
+![2](media/4bae0eb70f3c26e6717129be8ff86dd0.png)
 
 ### Coleta de imagens
 
@@ -397,13 +401,13 @@ Neste caso nós optamos por usar a ferramenta chamada *Google Images Download*, 
 qual auxilia no download de imagens en grandes quantidades.
 
 Você pode aprender mais sobre a ferramenta no seguinte link:
-```
+
 <https://google-images-download.readthedocs.io/en/latest/>
-```
+
 Nós baixamos em média 750 imagens por objeto, e separamos elas em pastas
 diferentes:
 
-![](media/50a4e68093cb5c88e05c86077004fc04.png)
+![3](media/50a4e68093cb5c88e05c86077004fc04.png)
 
 Renomeie cada imagem começando pelo 1.jpg. Nós começaremos renomeando todas as
 imagens jpg correspondentes à pasta argentina (1.jpg, 2.jpg, ..., 726.jpg),
@@ -429,9 +433,9 @@ Argentina terão 2 objetos para reconhecer.
 Os labels são parte importante deste processo. Existem diversos programas que
 nos auxiliam na criação deles. Nós usaremos o Yolo_Label. Você pode baixar esta
 ferramenta no link a seguir:
-```
+
 <https://github.com/developer0hye/Yolo_Label>
-```
+
 Nota: Agradecimentos especiais para *developer0hye* por sua contribuição à
 comunidade com esta ferramenta.
 
@@ -440,7 +444,7 @@ pasta. Lembrando que para cada objeto (*Brasil, Argentina, Colombia,* e
 *Mexico*) temos mais 2 subpastas com os nomes *\<nome do objeto\>*-train e
 *\<nome do objeto\>*-test.
 
-![](media/93b6d1a168fdbe861f40ddc91cde9244.png)
+![4](media/93b6d1a168fdbe861f40ddc91cde9244.png)
 
 Você terá acabado quando todas as imagens do seu dataset tiverem seus
 respectivos labels.
@@ -455,7 +459,7 @@ chamar *dog.txt*
 
 Primeiro vamos relembrar como ficou nossa arquitetura de pastas:
 
-![](media/4bae0eb70f3c26e6717129be8ff86dd0.png)
+![5](media/4bae0eb70f3c26e6717129be8ff86dd0.png)
 
 Vamos copiar todas as imagens das subpastas de treinamento (*\<nome do
 objeto\>*-train) dos 4 objetos, para a pasta *train*, depois repetimos o mesmo
@@ -609,9 +613,9 @@ caminho */home/ubuntu/darknet* e o arquivo weights na pasta */darknet/backup*.
 Antes de testar seu modelo treinado, edite seu arquivo *.cfg* comentando as
 linhas **6)** e **7)**, e descomentando as linhas **3)** e **4)**:
 
-![](media/97131e9ecd5827368ae89fd705922242.png)
+![7](media/97131e9ecd5827368ae89fd705922242.png)
 
-![](media/5f691670cd80a01f6d45607af26b59bd.png)
+![8](media/5f691670cd80a01f6d45607af26b59bd.png)
 
 Dúvidas
 -------
