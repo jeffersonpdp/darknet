@@ -354,7 +354,7 @@ imagem.
 
 Exemplo:
 
-![1](https://hsto.org/webt/yd/vl/ag/ydvlagutof2zcnjodstgroen8ac.jpeg)
+![1](/yolov3-doc/1.JPG)
 
 No exemplo acima encontramos 6 linhas, onde cada uma representa um objeto e sua
 posição, e dentro de cada linha encontramos 5 valores, onde o primeiro (na cor
